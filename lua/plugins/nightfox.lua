@@ -1,13 +1,13 @@
 return {
   {
-    "EdenEast/nightfox.nvim", -- lazy
+    'EdenEast/nightfox.nvim', -- lazy
     config = function()
-     vim.cmd("colorscheme carbonfox")
-      require("nightfox").setup({
+      require('nightfox').setup {
         options = {
           transparent = true,
         },
-      })
+      }
+      vim.cmd 'colorscheme carbonfox'
     end,
   },
 }
