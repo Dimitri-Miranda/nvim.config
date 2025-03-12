@@ -5,7 +5,6 @@ return {
     lazy = true, -- Carregamento preguiçoso do LuaSnip
     config = function()
       local luasnip = require 'luasnip'
-      require('luasnip.loaders.from_vscode').lazy_load() -- Carregar os snippets do VSCode (se houver)
     end,
   },
   -- nvim-cmp e integração com LuaSnip
@@ -35,7 +34,7 @@ return {
           end,
         },
         mapping = {
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ['<C-j>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -47,7 +46,7 @@ return {
             end
           end, { 'i', 's' }),
 
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
+          ['<C-k>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
@@ -56,11 +55,13 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
+
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
         },
         sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- Completar com snippets do LuaSnip
-          { name = 'emoji' }, -- Completar com emojis
+          { name = 'nvim_lsp', max_item_count = 5 },
+          { name = 'luasnip', max_item_count = 5 }, -- Completar com snippets do LuaSnip
+          { name = 'emoji', max_item_count = 5 }, -- Completar com emojis
         },
       }
     end,
