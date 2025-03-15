@@ -15,15 +15,15 @@ return {
   opts = function()
     local icons = {
       diagnostics = {
-        Error = '',
-        Warn = '',
-        Info = '',
-        Hint = '',
+        Error = ' ',
+        Warn = ' ',
+        Info = ' ',
+        Hint = ' ',
       },
       git = {
-        added = '',
-        modified = '柳',
-        removed = '',
+        added = ' ',
+        modified = '柳 ',
+        removed = ' ',
       },
     }
 

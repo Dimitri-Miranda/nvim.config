@@ -17,6 +17,8 @@ return { -- Collection of various small independent plugins/modules
     vim.api.nvim_set_keymap('i', '<C-j>', '<C-n>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('i', '<C-k>', '<C-p>', { noremap = true, silent = true })
 
+    require('mini.icons').setup()
+
     require('mini.tabline').setup()
     -- Buffer navegation remap
     vim.keymap.set('n', '<C-l>', ':silent bnext<CR>')
