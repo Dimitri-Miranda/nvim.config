@@ -2,11 +2,6 @@ return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
-    --
-    -- Examples:
-    --  - va)  - [V]isually select [A]round [)]paren
-    --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-    --  - ci'  - [C]hange [I]nside [']quote
     require('mini.ai').setup { n_lines = 500 }
 
     require('mini.pairs').setup()
@@ -23,6 +18,13 @@ return { -- Collection of various small independent plugins/modules
     -- Buffer navegation remap
     vim.keymap.set('n', '<C-l>', ':silent bnext<CR>')
     vim.keymap.set('n', '<C-h>', ':silent bprev<CR>')
+
+    -- local hipatterns = require 'mini.hipatterns'
+    -- hipatterns.setup {
+    --   highlighters = {
+    --     hex_color = hipatterns.gen_highlighter.hex_color(),
+    --   },
+    -- }
 
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
